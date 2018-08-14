@@ -23,4 +23,9 @@ class SongsController < ApplicationController
     erb :'/songs/show', locals: {message: "Successfully created song."}
   end
 
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'songs/edit'
+  end
+
 end
